@@ -3,6 +3,7 @@ import {Button, Form, Table} from 'react-bootstrap'
 import axios from 'axios'
 import PokemonForm from './PokemonForm'
 import {PokemonI} from '../interfaces/PokemonI'
+import {createPokemon, getPokemons} from "../services/pokemonService";
 
 const PokemonList: React.FC = () => {
     const [pokemons, setPokemons] = useState<PokemonI[]>([])
@@ -18,8 +19,8 @@ const PokemonList: React.FC = () => {
 
     const updatePokemons = async () => {
         try {
-            const response = await axios.get('http://localhost:4000/api/pokemon')
-            setPokemons(response.data)
+            const data = await getPokemons()
+            setPokemons(data)
         } catch (error) {
             console.error('Error al obtener los pokemons:', error)
         }
@@ -28,8 +29,8 @@ const PokemonList: React.FC = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:4000/api/pokemon')
-                setPokemons(response.data)
+                const data = await getPokemons()
+                setPokemons(data)
             } catch (error) {
                 console.error('Error al obtener los pokemons:', error)
             }
@@ -47,10 +48,10 @@ const PokemonList: React.FC = () => {
 
     const handleAddPokemon = async () => {
         try {
-            const response = await axios.post('http://localhost:4000/api/pokemon', newPokemon)
-            console.log(response.data)
+            const data = await createPokemon(newPokemon)
+            console.log(data)
             // Actualizamos la lista de pokemons
-            setPokemons(prevPokemons => [...prevPokemons, response.data])
+            setPokemons(prevPokemons => [...prevPokemons, data])
             // Limpiamos los campos del nuevo pokemon
             setNewPokemon({
                 nombre: '',

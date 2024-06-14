@@ -1,10 +1,9 @@
 import React, {useState} from 'react'
 import {Button, Form} from 'react-bootstrap'
-import axios from 'axios'
 import {PokemonI} from '../interfaces/PokemonI'
 import {PokemonFormProps} from '../interfaces/PokemonFormPropsI'
-import { FaTrashAlt, FaSave } from 'react-icons/fa'
-
+import {FaSave, FaTrashAlt} from 'react-icons/fa'
+import {deletePokemon, updatePokemon} from "../services/pokemonService";
 
 
 const PokemonForm: React.FC<PokemonFormProps> = ({pokemon, updatePokemons}) => {
@@ -20,8 +19,8 @@ const PokemonForm: React.FC<PokemonFormProps> = ({pokemon, updatePokemons}) => {
 
     const handleUpdatePokemon = async () => {
         try {
-            const response = await axios.put(`http://localhost:4000/api/pokemon/${pokemon._id}`, editedPokemon)
-            console.log(response.data)
+            const data = await updatePokemon(pokemon._id, editedPokemon)
+            console.log(data)
         } catch (error) {
             console.error('Error al actualizar el pokemon:', error)
         }
@@ -29,7 +28,7 @@ const PokemonForm: React.FC<PokemonFormProps> = ({pokemon, updatePokemons}) => {
 
     const handleDeletePokemon = async () => {
         try {
-            await axios.delete(`http://localhost:4000/api/pokemon/${pokemon._id}`)
+            await deletePokemon(pokemon._id)
             await updatePokemons()
         } catch (error) {
             console.error('Error al borrar el pokemon:', error)
