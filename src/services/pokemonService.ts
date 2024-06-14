@@ -4,7 +4,7 @@ import {PokemonI} from '../interfaces/PokemonI'
 
 axiosRetry(axios, {retries: 5, retryDelay: (retryCount) => retryCount * 10000})
 
-const API_URL = 'http://localhost:4000/api/pokemon'
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:4000/api/pokemon'
 
 export const getPokemons = async (): Promise<PokemonI[]> => {
     try {
