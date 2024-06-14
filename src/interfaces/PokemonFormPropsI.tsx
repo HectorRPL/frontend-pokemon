@@ -1,6 +1,6 @@
 import {PokemonI} from "./PokemonI";
 
-export interface PokemonFormPropsI {
-    pokemon: PokemonI;
-    editable: boolean;
+export interface PokemonFormProps {
+    pokemon: PokemonI
+    updatePokemons: () => Promise<void>
 }
