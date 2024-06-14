@@ -6,3 +6,8 @@
 
 	$ npm install bootstrap
 	$ npm install react-bootstrap@next bootstrap@5
+
+## axios
+
+    $ npm install axios @types/axios
+
