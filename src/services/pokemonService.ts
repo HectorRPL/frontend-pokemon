@@ -1,8 +1,8 @@
 import axios from 'axios'
 import axiosRetry from 'axios-retry'
-import { PokemonI } from '../interfaces/PokemonI'
+import {PokemonI} from '../interfaces/PokemonI'
 
-axiosRetry(axios, { retries: 5, retryDelay: (retryCount) => retryCount * 10000 })
+axiosRetry(axios, {retries: 5, retryDelay: (retryCount) => retryCount * 10000})
 
 const API_URL = 'http://localhost:4000/api/pokemon'
 

@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react'
 import {Button, Form, Table} from 'react-bootstrap'
-import axios from 'axios'
 import PokemonForm from './PokemonForm'
 import {PokemonI} from '../interfaces/PokemonI'
 import {createPokemon, getPokemons} from "../services/pokemonService";
@@ -14,7 +13,7 @@ const PokemonList: React.FC = () => {
     })
 
     useEffect(() => {
-        updatePokemons()
+        updatePokemons().then(r => console.log(r))
     }, [])
 
     const updatePokemons = async () => {

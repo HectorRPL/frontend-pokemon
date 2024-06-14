@@ -14,3 +14,7 @@
 ## iconos
 
     $ npm install react-icons
+
+## reintentos
+
+    $ npm install axios-retry
