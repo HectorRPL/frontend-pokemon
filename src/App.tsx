@@ -1,26 +1,13 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
+import CustomContainer from "./components/CustomContainer";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App: React.FC = () => {
+  return (<>
+      <CustomContainer>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi eligendi magnam maxime necessitatibus obcaecati officia placeat quo repellendus ut voluptas? Accusantium blanditiis cum in laborum libero nisi nulla omnis ullam.
+      </CustomContainer>
+  </>)
 }
 
-export default App;
+export default App
