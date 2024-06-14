@@ -67,7 +67,6 @@ const PokemonList: React.FC = () => {
         <Table striped bordered hover>
             <thead>
             <tr>
-                <th>ID</th>
                 <th>Nombre</th>
                 <th>Poder</th>
                 <th>Vida</th>
@@ -76,7 +75,6 @@ const PokemonList: React.FC = () => {
             </thead>
             <tbody>
             <tr>
-                <td></td>
                 <td>
                     <Form.Control type="text" name="nombre" value={newPokemon.nombre} onChange={handleChange}/>
                 </td>

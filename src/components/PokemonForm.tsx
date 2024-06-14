@@ -2,7 +2,8 @@ import React, {useState} from 'react'
 import {Button, Form} from 'react-bootstrap'
 import axios from 'axios'
 import {PokemonI} from '../interfaces/PokemonI'
-import {PokemonFormProps} from "../interfaces/PokemonFormPropsI";
+import {PokemonFormProps} from '../interfaces/PokemonFormPropsI'
+import { FaTrashAlt, FaSave } from 'react-icons/fa'
 
 
 
@@ -37,7 +38,6 @@ const PokemonForm: React.FC<PokemonFormProps> = ({pokemon, updatePokemons}) => {
 
     return (
         <tr>
-            <td>{pokemon._id}</td>
             <td>
                 <Form>
                     <Form.Control type="text" name="nombre" value={editedPokemon.nombre} onChange={handleChange}/>
@@ -54,8 +54,12 @@ const PokemonForm: React.FC<PokemonFormProps> = ({pokemon, updatePokemons}) => {
                 </Form>
             </td>
             <td>
-                <Button variant="primary" onClick={handleUpdatePokemon}>Guardar</Button>
-                <Button variant="danger" onClick={handleDeletePokemon}>Borrar</Button>
+                <Button variant="primary" onClick={handleUpdatePokemon} className="me-2">
+                    <FaSave />
+                </Button>
+                <Button variant="danger" onClick={handleDeletePokemon}>
+                    <FaTrashAlt />
+                </Button>
             </td>
         </tr>
     )

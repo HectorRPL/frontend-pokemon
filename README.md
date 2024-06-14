@@ -11,3 +11,6 @@
 
     $ npm install axios @types/axios
 
+## iconos
+
+    $ npm install react-icons
